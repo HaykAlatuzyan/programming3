@@ -1,51 +1,47 @@
+class GrassEater extends LivingCreature {
 
-class GrassEater {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.energy = 10;
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+    constructor(x, y, index){
+    
+    super(x, y, index);
+    this.energy = 8;
+    
     }
-    getNewCordinates(){
-              this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
+    
+    getNewCoordinates() {
+    
+    this.directions = [
+    
+    [this.x - 1, this.y - 1],
+    
+    [this.x, this.y - 1],
+    
+    [this.x + 1, this.y - 1],
+    
+    [this.x - 1, this.y],
+    
+    [this.x + 1, this.y],
+    
+    [this.x - 1, this.y + 1],
+    
+    [this.x, this.y + 1],
+    
+    [this.x + 1, this.y + 1]
+    
+    ];
+    
     }
-    chooseCell(char) {
-      this.getNewCordinates();
-        let result = [];
-
-        for (let i = 0; i < this.directions.length; i++) {
-            let x = this.directions[i][0];
-            let y = this.directions[i][1];
-
-            if ( y < matrix.length && y >= 0 && x < matrix[0].length && x >= 0 ){
-                if (matrix[y][x] == char) {
-                    result.push(this.directions[i]);
-                }
-            }
-
-        }
-
-        return result;
+    
+    chooseCell(character) {
+    
+    this.getNewCoordinates();
+    
+    return super.chooseCell(character);
+    
     }
-    mul() {
+    
+    // eat, mul, move, die
+
+mul() {
         let found = this.chooseCell(0);
         let exact = random(found)
 

@@ -1,51 +1,47 @@
+class AllEater extends LivingCreature {
 
-class AllEater{
-    constructor(x, y){
-        this.x = x
-        this.y = y
-        this.energy = 10;
-        this.directions = [
-        [this.x - 1, this.y - 1],
-        [this.x, this.y - 1],
-        [this.x + 1, this.y - 1],
-        [this.x - 1, this.y],
-        [this.x + 1, this.y],
-        [this.x - 1, this.y + 1],
-        [this.x, this.y + 1],
-        [this.x + 1, this.y + 1]
-        ];
-        
+    constructor(x, y, index){
+    
+    super(x, y, index);
+    this.energy = 10;
+    
     }
-    getNewCordinates(){
-        this.directions = [
-      [this.x - 1, this.y - 1],
-      [this.x, this.y - 1],
-      [this.x + 1, this.y - 1],
-      [this.x - 1, this.y],
-      [this.x + 1, this.y],
-      [this.x - 1, this.y + 1],
-      [this.x, this.y + 1],
-      [this.x + 1, this.y + 1]
-  ];
+    
+    getNewCoordinates() {
+    
+    this.directions = [
+    
+    [this.x - 1, this.y - 1],
+    
+    [this.x, this.y - 1],
+    
+    [this.x + 1, this.y - 1],
+    
+    [this.x - 1, this.y],
+    
+    [this.x + 1, this.y],
+    
+    [this.x - 1, this.y + 1],
+    
+    [this.x, this.y + 1],
+    
+    [this.x + 1, this.y + 1]
+    
+    ];
+    
     }
-    chooseCell(char1, char2) {
-        this.getNewCordinates();
-        let result = [];
-  
-          for (let i = 0; i < this.directions.length; i++) {
-              let x = this.directions[i][0];
-              let y = this.directions[i][1];
-  
-              if ( y < matrix.length && y >= 0 && x < matrix[0].length && x >= 0 ){
-                  if (matrix[y][x] == char1 || matrix[y][x] == char2){
-                      result.push(this.directions[i]);
-                  }
-              }
-  
-          }
-  
-          return result;
+    
+    chooseCell(character) {
+    
+    this.getNewCoordinates();
+    
+    return super.chooseCell(character);
+    
     }
+    
+    // eat, mul, move, die
+
+
 
     mul() {
         

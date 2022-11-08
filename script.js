@@ -1,4 +1,5 @@
 var matrix = [];
+var LivingCreatureArr = [];
 var grassArr = [];
 var grassEaterArr = [];
 var allEaterArr = [];
@@ -109,8 +110,8 @@ function draw() {
         
     }
     for (let i = 0; i < grassArr.length; i++) {
-        const grass = grassArr[i];
-        grass.mul();
+       // const grass = grassArr[i];
+       grassArr[i].mul();
     }
     for (let j = 0; j < grassEaterArr.length; j++) {
         const eater = grassEaterArr[j];
@@ -135,3 +136,5 @@ function draw() {
    
 
 }
+let arrrr = []
+//console.log(arrrr.length)
